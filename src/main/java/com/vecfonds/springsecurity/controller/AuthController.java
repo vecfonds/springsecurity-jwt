@@ -1,6 +1,5 @@
 package com.vecfonds.springsecurity.controller;
 
-
 import com.vecfonds.springsecurity.entity.RefreshToken;
 import com.vecfonds.springsecurity.entity.Role;
 import com.vecfonds.springsecurity.entity.User;
@@ -15,8 +14,6 @@ import com.vecfonds.springsecurity.repository.RoleRepository;
 import com.vecfonds.springsecurity.repository.UserRepository;
 import com.vecfonds.springsecurity.service.JwtService;
 import com.vecfonds.springsecurity.service.RefreshTokenService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,11 +23,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Collections;
 
 @RestController
@@ -69,10 +63,8 @@ public class AuthController {
 
         RefreshToken refreshToken = refreshTokenService.generateRefreshToken(currentUser.getId());
 
-
         return new ResponseEntity<>(new JwtResponse(token, refreshToken.getToken(), currentUser.getAuthorities()), HttpStatus.OK);
     }
-
 
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request){

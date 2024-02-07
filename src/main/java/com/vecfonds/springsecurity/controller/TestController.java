@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/admin")
-@PreAuthorize("hasAuthority('USER')")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class TestController {
 //    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("random")
     public ResponseEntity<String> random(){
-        return new ResponseEntity<>("cc", HttpStatus.OK);
+        return new ResponseEntity<>("hello", HttpStatus.OK);
     }
 }

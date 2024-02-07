@@ -1,6 +1,6 @@
 package com.vecfonds.springsecurity.security;
 
-import com.vecfonds.springsecurity.service.CustomUserDetailsService;
+import com.vecfonds.springsecurity.service.impl.CustomUserDetailsService;
 import com.vecfonds.springsecurity.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
